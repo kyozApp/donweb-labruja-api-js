@@ -1,0 +1,5 @@
+# Archivos que no se subiran al git
+node_modules
+
+# Ruta de la imagen
+uploads
