@@ -25,7 +25,7 @@ const mostrarPorId = async (req, res) => {
 };
 
 const crear = async (req, res) => {
-  const { nombre, categoria, subcategoria, stockGeneral, stockLima, stockArequipa, precio, estado, marca, url, descripcion } = req.body;
+  const { nombre, categoria, subcategoria, stockGeneral, stockLima, stockArequipa, precio, estado, marca, url, descripcion, referencia } = req.body;
   const imagenes = req.files.map(file => path.join('uploads', file.filename));
   const nuevo = {
     nombre,
@@ -39,6 +39,7 @@ const crear = async (req, res) => {
     marca,
     url,
     descripcion,
+    referencia,
     imagenes
   }
   try {
@@ -51,7 +52,7 @@ const crear = async (req, res) => {
 
 const actualizar = async (req, res) => {
   const id = req.params.id;
-  const { nombre, categoria, subcategoria, stockGeneral, stockLima, stockArequipa, precio, estado, marca, url, descripcion } = req.body;
+  const { nombre, categoria, subcategoria, stockGeneral, stockLima, stockArequipa, precio, estado, marca, url, descripcion, referencia } = req.body;
   const imagenes = req.files.map(file => path.join('uploads', file.filename));
   const updates = {
     nombre,
@@ -65,6 +66,7 @@ const actualizar = async (req, res) => {
     marca,
     url,
     descripcion,
+    referencia,
     imagenes
   }
   try {

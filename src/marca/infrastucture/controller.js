@@ -25,10 +25,11 @@ const mostrarPorId = async (req, res) => {
 };
 
 const crear = async (req, res) => {
-  const { nombre } = req.body;
+  const { nombre, estado } = req.body;
   const imagen = path.join('uploads', req.file.filename);
   const nuevo = {
     nombre,
+    estado,
     imagen
   }
   try {
@@ -41,10 +42,11 @@ const crear = async (req, res) => {
 
 const actualizar = async (req, res) => {
   const id = req.params.id;
-  const { nombre } = req.body;
+  const { nombre, estado } = req.body;
   const imagen = path.join('uploads', req.file.filename);
   const updates = {
     nombre,
+    estado,
     imagen
   }
   try {
