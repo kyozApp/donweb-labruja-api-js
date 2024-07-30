@@ -5,8 +5,8 @@ const { guardarImagenes } = require('../../config/multer');
 const auth = require('../../config/auth');
 
 
-marcaRouter.get('/', auth, controller.mostrarTodos);
-marcaRouter.get('/:id', auth, controller.mostrarPorId);
+marcaRouter.get('/', controller.mostrarTodos);
+marcaRouter.get('/:id', controller.mostrarPorId);
 marcaRouter.post('/', auth, guardarImagenes.single('imagen'), controller.crear);
 marcaRouter.put('/:id', auth, guardarImagenes.single('imagen'), controller.actualizar);
 marcaRouter.delete('/:id', auth, controller.eliminar);
