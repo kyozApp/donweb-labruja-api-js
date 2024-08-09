@@ -1,6 +1,6 @@
 const app = require('./app/app');
-const db = require('./db/db');
-const { PORT } = require('./config/variables');
+const db = require('./app/db');
+const { PORT } = require('./app/variables');
 
 db().then(() => {
     app.listen(PORT, () => {

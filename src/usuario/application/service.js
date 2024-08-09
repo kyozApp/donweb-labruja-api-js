@@ -1,6 +1,6 @@
 const repository = require('../domain/repository');
 const jwt = require('jsonwebtoken');
-const { JWT_SECRET } = require('../../config/variables');
+const { JWT_SECRET } = require('../infrastucture/variables');
 
 const mostrarTodos = async () => {
   return await repository.mostrarTodos();
@@ -25,7 +25,7 @@ const eliminar = async (id) => {
 const login = async ({ correo, clave }) => {
   const usuario = await repository.login(correo, clave);
   if (usuario) {
-    const token = jwt.sign({ id: usuario._id, correo: usuario.correo }, JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ id: usuario._id, correo: usuario.correo, cargo: usuario.cargo }, JWT_SECRET, { expiresIn: '12h' });
     return { usuario, token };
   } else {
     throw new Error('Usuario no encontrado');
